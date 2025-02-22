@@ -5,3 +5,4 @@ Flask-WTF==1.0.0
 Werkzeug==2.0.3
 WTForms==2.3.3
 flask_login
+email_validator

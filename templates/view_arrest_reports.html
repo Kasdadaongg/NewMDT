@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mt-4">Arrest Reports</h2>
+
+    {% if arrest_reports %}
+        <div class="list-group">
+            {% for report in arrest_reports %}
+                <div class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ report.mugshot_url }}" alt="Mugshot" class="img-fluid" />
+                        </div>
+                        <div class="col-md-9">
+                            <h5>{{ report.first_name }} {{ report.last_name }}</h5>
+                            <p><strong>Date of Birth:</strong> {{ report.dob }}</p>
+                            <p><strong>Reason for Arrest:</strong> {{ report.reason_for_arrest }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No arrest reports found.</p>
+    {% endif %}
+{% endblock %}

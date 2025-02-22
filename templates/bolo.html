@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>BOLO Reports</h2>
+
+    <!-- Form to create a new BOLO -->
+    <form action="{{ url_for('bolo') }}" method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create BOLO</button>
+    </form>
+
+    <h3>Existing BOLO Reports</h3>
+    <ul>
+        {% for report in bolo_reports %}
+            <li>
+                <strong>{{ report.title }}</strong>: {{ report.description }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

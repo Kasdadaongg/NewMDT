@@ -1,0 +1,189 @@
+/* Global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body and overall layout */
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #1e2a47;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f39c12;
+}
+
+/* Flash messages */
+.alert {
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+/* Main page and incident list */
+h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+ul.list-group {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item h5 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.list-group-item p {
+    font-size: 14px;
+    color: #555;
+}
+
+.list-group-item .btn {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.list-group-item .btn-warning {
+    background-color: #f39c12;
+    border: none;
+}
+
+.list-group-item .btn-warning:hover {
+    background-color: #e67e22;
+}
+
+.list-group-item .btn-danger {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.list-group-item .btn-danger:hover {
+    background-color: #c0392b;
+}
+
+/* Add/Edit Incident Form */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+form .form-label {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+form .form-control {
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+form .form-control:focus {
+    border-color: #1e2a47;
+    box-shadow: 0 0 8px rgba(30, 42, 71, 0.2);
+}
+
+form .btn {
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background-color: #1e2a47;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+form .btn:hover {
+    background-color: #34495e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 14px;
+        margin-right: 0.5rem;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .list-group-item h5 {
+        font-size: 16px;
+    }
+
+    .list-group-item p {
+        font-size: 12px;
+    }
+
+    form .form-control {
+        font-size: 14px;
+    }
+
+    form .btn {
+        font-size: 14px;
+        width: 100%;
+    }
+}

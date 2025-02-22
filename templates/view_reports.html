@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Crime Reports</h2>
+{% if crime_reports %}
+    <ul>
+    {% for report in crime_reports %}
+        <li>
+            <strong>Crime Type:</strong> {{ report['crime_type'] }}<br>
+            <strong>Description:</strong> {{ report['description'] }}<br>
+            <strong>Status:</strong> {{ report['status'] }}<br>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No crime reports available.</p>
+{% endif %}
+{% endblock %}

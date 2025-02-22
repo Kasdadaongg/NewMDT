@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to HarpCityRPC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://media.discordapp.net/attachments/1289629187132489739/1342196513643954217/s_o_Iesrpc_4.png?ex=67ba12e9&is=67b8c169&hm=87b6ff95c73fa6ca297dacda60b36a0db27099e80fdce25f140d7f14cd186acd&=&format=webp&quality=lossless&width=450&height=450" alt="HarpCityRPC Logo" style="height: 50px;">
+            HarpCityRPC
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4">Welcome to HarpCityRPC</h1>
+            <p class="lead">A fun and immersive roleplay experience awaits. Join now and start your adventure!</p>
+        </div>
+    </header>
+
+    <!-- Image Slider Section -->
+    <section class="my-5">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/1200x500/0000FF/808080?Text=Slide1" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1200x500/FF5733/FFFFFF?Text=Slide2" class="d-block w-100" alt="...">
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/1200x500/DAF7A6/FFFFFF?Text=Slide3" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>About Us</h2>
+                <p>At HarpCityRPC, we offer a rich roleplay experience where you can immerse yourself in a virtual city. Whether you're part of the Garda (Police), Fire Department, EMS, or a Civilian, we provide a wide range of opportunities for you to interact and have fun. Our community is welcoming, and we're always looking for new members to join and contribute to the world we're building.</p>
+            </div>
+            <div class="col-md-6">
+                <h2>Features</h2>
+                <ul>
+                    <li>Realistic Emergency Services</li>
+                    <li>Dynamic Civilian Activities</li>
+                    <li>Police, Fire, and EMS Roles</li>
+                    <li>Interactive Vehicles and Characters</li>
+                    <li>Customizable Experience</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h2>Ready to join the fun?</h2>
+            <p>Sign up and become part of HarpCityRPC today! Choose your role and start your journey in a vibrant community.</p>
+            <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg">Sign Up Now</a>
+            <a href="{{ url_for('login') }}" class="btn btn-secondary btn-lg">Login</a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 HarpCityRPC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

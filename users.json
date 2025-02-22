@@ -1,0 +1,27 @@
+{
+    "9abeb07e-52d4-47ec-954f-db8c35a4c2af": {
+        "id": "9abeb07e-52d4-47ec-954f-db8c35a4c2af",
+        "username": "paddyduffy",
+        "email": "itspatrick98@gmail.com",
+        "password": "scrypt:32768:8:1$JoHzKbDvEMpK6R9D$fe90d0b2a2d2894e86f08cbbf7c1ae9e89591685ad09154643b80d5ed45a8e1437a4a30465fee4bc42a37c9eabd10f9ddc7f0f65563669786f5a890210413384",
+        "role": "Civ",
+        "approved": true,
+        "characters": [
+            {
+                "name": "Paddy Duffy",
+                "age": "25",
+                "gender": "Male",
+                "occupation": "Circle K Worker",
+                "description": "25 Year old from the dolphins barn"
+            }
+        ]
+    },
+    "6a31ae1e-13aa-4ce8-8798-a9e2cceb5ccd": {
+        "id": "6a31ae1e-13aa-4ce8-8798-a9e2cceb5ccd",
+        "username": "admin",
+        "email": "admin@harpcityrpc.xyz",
+        "password": "scrypt:32768:8:1$It0QwRggC8SKGc41$ff5face19a0b4b49579f4ba607daeffd92c302a0fde15b81590b25b5e0ca8c1ad73697a2b5ad4e4d8618f806a391219e9b8f1ca59dfd713ecdac461f03a22991",
+        "role": "admin",
+        "approved": true
+    }
+}

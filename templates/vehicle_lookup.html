@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Vehicle Lookup</h2>
+
+    <form action="{{ url_for('vehicle_lookup') }}" method="POST">
+        <div class="form-group">
+            <label for="license_plate">License Plate</label>
+            <input type="text" name="license_plate" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Lookup Vehicle</button>
+    </form>
+
+    {% if vehicle_data %}
+        <h3>Vehicle Details</h3>
+        <p><strong>License Plate:</strong> {{ vehicle_data.license_plate }}</p>
+        <p><strong>Model:</strong> {{ vehicle_data.model }}</p>
+        <p><strong>Owner:</strong> {{ vehicle_data.owner }}</p>
+    {% endif %}
+{% endblock %}

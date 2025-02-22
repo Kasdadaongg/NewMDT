@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mt-4">Create New Vehicle</h2>
+
+    <form action="{{ url_for('create_vehicle') }}" method="POST">
+        <div class="form-group">
+            <label for="license_plate">License Plate:</label>
+            <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="Enter vehicle license plate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="make">Vehicle Make:</label>
+            <input type="text" class="form-control" id="make" name="make" placeholder="Enter vehicle make" required>
+        </div>
+
+        <div class="form-group">
+            <label for="model">Vehicle Model:</label>
+            <input type="text" class="form-control" id="model" name="model" placeholder="Enter vehicle model" required>
+        </div>
+
+        <div class="form-group">
+            <label for="color">Vehicle Color:</label>
+            <input type="text" class="form-control" id="color" name="color" placeholder="Enter vehicle color" required>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Vehicle Year:</label>
+            <input type="number" class="form-control" id="year" name="year" placeholder="Enter vehicle year" required>
+        </div>
+
+        <div class="form-group">
+            <label for="owner">Vehicle Owner (Character Name):</label>
+            <input type="text" class="form-control" id="owner" name="owner" placeholder="Enter the character name for the owner" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Vehicle</button>
+    </form>
+
+{% endblock %}

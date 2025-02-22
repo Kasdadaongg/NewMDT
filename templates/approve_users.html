@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Approve Users</h2>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="alert alert-info">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endwith %}
+
+{% if unapproved_users %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in unapproved_users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.status }}</td>
+                    <td>
+                        <form action="{{ url_for('approve_user', user_id=user.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-success">Approve</button>
+                        </form>
+                        <form action="{{ url_for('reject_user', user_id=user.id) }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Reject</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No users to approve.</p>
+{% endif %}
+{% endblock %}

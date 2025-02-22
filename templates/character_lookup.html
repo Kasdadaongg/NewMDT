@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Character Lookup</h2>
+
+    <form action="{{ url_for('character_lookup') }}" method="POST">
+        <div class="form-group">
+            <label for="character_name">Character Name</label>
+            <input type="text" name="character_name" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Lookup Character</button>
+    </form>
+
+    {% if vehicle_data %}
+        <h3>Character Details</h3>
+        <p><strong>Character Name:</strong> {{ vehicle_data.name }}</p>
+        <p><strong>Age:</strong> {{ vehicle_data.age }}</p>
+        <p><strong>Gender:</strong> {{ vehicle_data.gender }}</p>
+        <p><strong>Occupation:</strong> {{ vehicle_data.occupation }}</p>
+        <p><strong>Description:</strong> {{ vehicle_data.description }}</p>
+    {% elif vehicle_data is not none %}
+        <p>No character found with that name.</p>
+    {% endif %}
+{% endblock %}

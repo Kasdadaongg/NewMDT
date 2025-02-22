@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mt-4">Create New Character</h2>
+
+    <form action="{{ url_for('create_character') }}" method="POST">
+        <div class="form-group">
+            <label for="name">Character Name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter character name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age">Character Age:</label>
+            <input type="number" class="form-control" id="age" name="age" placeholder="Enter character age" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Character Gender:</label>
+            <select class="form-control" id="gender" name="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="occupation">Character Occupation:</label>
+            <input type="text" class="form-control" id="occupation" name="occupation" placeholder="Enter occupation" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Character Description:</label>
+            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter a short character description" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Character</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="mt-4">Welcome to the Homepage, {{ current_user.username }}!</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- General Info or Dashboard -->
+            <h3>Dashboard</h3>
+            <p>Welcome to your dashboard. Depending on your role, you will see different features below.</p>
+        </div>
+    </div>
+
+    <!-- Garda Features -->
+    {% if current_user.role == 'Garda' %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Garda Features</h4>
+
+            <!-- Bolo (Be On the Look Out) -->
+            <a href="{{ url_for('bolo') }}" class="btn btn-info mb-3">Bolo (Be On the Look Out)</a>
+
+            <!-- Vehicle Lookup by License Plate -->
+            <a href="{{ url_for('character_lookup') }}" class="btn btn-primary mb-3">Character Lookup</a>
+            <a href="{{ url_for('vehicle_lookup') }}" class="btn btn-primary mb-3">Vehicle Lookup</a>
+
+            <!-- Create an Arrest Report -->
+            <a href="{{ url_for('arrest_report') }}" class="btn btn-warning mb-3">Create Arrest Report</a>
+
+            <!-- View Arrest Report -->
+            <a href="{{ url_for('view_arrest_reports') }}" class="btn btn-danger mb-3">View Arrest Reports</a>
+
+            <a href="{{ url_for('view_reports') }}" class="btn btn-danger mb-3">View 999 Calls</a>
+
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Fire/EMS Features -->
+    {% if current_user.role == 'Fire Department' or current_user.role == 'EMS' %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Fire/EMS Features</h4>
+
+            <!-- Add Incident -->
+            <a href="{{ url_for('new_incident') }}" class="btn btn-primary mb-3">Create New Incident</a>
+
+            <!-- View Active Incidents -->
+            <a href="{{ url_for('view_incidents') }}" class="btn btn-warning mb-3">View Active Incidents</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Civ Features -->
+    {% if current_user.role == 'Civ' %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Civ Features</h4>
+
+            <!-- Civs can now create characters and vehicles -->
+            <a href="{{ url_for('create_character') }}" class="btn btn-secondary mb-3">Add New Character</a>
+            <a href="{{ url_for('create_vehicle') }}" class="btn btn-secondary mb-3">Add New Vehicle</a>
+
+            <!-- Report Crime -->
+            <a href="{{ url_for('report_crime') }}" class="btn btn-danger mb-3">Call 999</a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Admin Features -->
+    {% if current_user.role == 'admin' %}
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Admin Features</h4>
+            <!-- Admin Features with links -->
+            <a href="{{ url_for('admin_panel') }}" class="btn btn-danger mb-3">Admin Panel</a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

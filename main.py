@@ -115,7 +115,7 @@ def login():
         if user:
             print(f"DEBUG: User data found: {user}")  # Debugging line
             
-            if check_password_hash(user['password'], form.password.data):
+            if user['password'] == form.password.data:
                 user_obj = User(id=user['id'], username=user['username'], password_hash=user['password'], email=user['email'], role=user['role'], approved=user['approved'])
                 if user_obj.approved:
                     login_user(user_obj)
@@ -134,12 +134,11 @@ def signup():
     if form.validate_on_submit():
         users = load_users()
         user_id = str(uuid.uuid4())
-        hashed_password = generate_password_hash(form.password.data)
         users[user_id] = {
             'id': user_id,
             'username': form.username.data,
             'email': form.email.data,
-            'password': hashed_password,
+            'password': form.password.data,
             'role': None,
             'approved': False
         }
@@ -687,4 +686,4 @@ def reject_user(user_id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=80)
+    app.run(debug=True)
